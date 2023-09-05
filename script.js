@@ -1,6 +1,6 @@
 //Simple game of Rock, Paper, Scissors
-const playerSelection = "Rock";
-const computerSelection = getComputerChoice();
+let playerSelection = prompt("Enter Rock, Paper, or Scissors");
+let computerSelection = getComputerChoice();
 
 function getComputerChoice() {
     let computersChoice = Math.floor(Math.random() * 3) + 1;
@@ -41,21 +41,26 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
 
-    while (playerScore <= 5 || computerScore <= 5) {
-        let result = playRound(playerSelection, computerSelection);
-
-        if (result.includes("win")) {
-            playerScore += 1;
-            console.log(result + "\nPlayer Score: " + playerScore + "\tComputer Score: " + computerScore);
-        } 
-        if (result.includes("lose")) {
-            computerScore += 1;
-            console.log(result + "\nPlayer Score: " + playerScore + "\tComputer Score: " + computerScore);
-        }
-        if (result.includes("tie")) {
-            console.log(result + "\nPlayer Score: " + playerScore + "\tComputer Score: " + computerScore);
-        }
+    if (playRound(playerSelection, computerSelection).includes("win")) {
+        playerScore += 1;
+        // console.log(result);
+    }else if (playRound(playerSelection, computerSelection).includes("lose")) {
+        computerScore += 1;
+        // console.log(result);
     }
+
+    console.log("Player: " + playerScore + "\tComputer: " + computerScore);
 }
 
+// if (playRound(playerSelection, computerSelection).includes("win")) {
+//     console.log(true);
+// } else if (playRound(playerSelection, computerSelection).includes("lose")) {
+//     console.log(false);
+// } else if (playRound(playerSelection, computerSelection).includes("tie")) {
+//     console.log(null);
+// }
+game();
+game();
+game();
+game();
 game();
